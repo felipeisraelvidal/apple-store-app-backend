@@ -37,4 +37,12 @@ router.get('/products/:productId', (req, res) => {
     return getProductByIDController.handle(req, res);
 });
 
+router.get('/products/:productId/options/:optionId/customizations', (req, res) => {
+    return res.send('Get all product option customizations');
+});
+
+router.get('/products/:productId/details', (req, res) => {
+    return res.send('Get product details (feed about the product)');
+});
+
 export default router;

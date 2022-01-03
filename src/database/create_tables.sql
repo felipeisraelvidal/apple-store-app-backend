@@ -41,3 +41,14 @@ CREATE TABLE IF NOT EXISTS products_options (
 
     FOREIGN KEY (id_product) REFERENCES products (id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS products_options_specs;
+CREATE TABLE IF NOT EXISTS products_options_specs (
+    id INTEGER PRIMARY KEY,
+    id_product_option INTEGER NOT NULL,
+    description VARCHAR,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_product_option) REFERENCES products_options (id) ON DELETE CASCADE
+);

@@ -35,6 +35,7 @@ export class ProductsRepository implements IProductsRepository {
             .createQueryBuilder('product')
             .where('product.id = :productId', { productId })
             .leftJoinAndSelect('product.options', 'option')
+            .leftJoinAndSelect('option.specs', 'optionSpec')
             .getOne();
 
         if (!product) {

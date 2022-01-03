@@ -29,3 +29,14 @@ INSERT INTO products_options (id_product, name, image_url, price)
 VALUES
     (1, 'Apple M1 Chip with 8-Core CPU and 7-Core GPU\n256GB Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 999),
     (1, 'Apple M1 Chip with 8-Core CPU and 8-Core GPU\n512GB Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 1249);
+
+INSERT INTO products_options_specs (id_product_option, description)
+VALUES
+    (1, 'Apple M1 chip with 8‑core CPU, 7‑core GPU, and 16‑core Neural Engine'),
+    (1, '8GB unified memory'),
+    (1, '256GB SSD storage'),
+    (1, 'Retina display with True Tone'),
+    (1, 'Magic Keyboard'),
+    (1, 'Touch ID'),
+    (1, 'Force Touch trackpad'),
+    (1, 'Two Thunderbolt / USB 4 ports');
