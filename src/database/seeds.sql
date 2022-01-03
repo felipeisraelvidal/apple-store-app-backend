@@ -39,4 +39,12 @@ VALUES
     (1, 'Magic Keyboard'),
     (1, 'Touch ID'),
     (1, 'Force Touch trackpad'),
-    (1, 'Two Thunderbolt / USB 4 ports');
+    (1, 'Two Thunderbolt / USB 4 ports'),
+    (2, 'Apple M1 chip with 8‑core CPU, 8‑core GPU, and 16‑core Neural Engine'),
+    (2, '8GB unified memory'),
+    (2, '512GB SSD storage'),
+    (2, 'Retina display with True Tone'),
+    (2, 'Magic Keyboard'),
+    (2, 'Touch ID'),
+    (2, 'Force Touch trackpad'),
+    (2, 'Two Thunderbolt / USB 4 ports');
