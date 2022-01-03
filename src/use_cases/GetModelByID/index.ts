@@ -1,11 +1,11 @@
 import { ModelsRepository } from '@repositories/implementations/ModelsRepository';
-import { GetModelsByIDController } from './GetModelsByIDController';
+import { GetModelByIDController } from './GetModelByIDController';
 import { GetModelByIDUseCase } from './GetModelByIDUseCase';
 
 const modelsRepository = new ModelsRepository;
 
 const getModelByIDUseCase = new GetModelByIDUseCase(modelsRepository);
 
-const getModelByIDController = new GetModelsByIDController(getModelByIDUseCase);
+const getModelByIDController = new GetModelByIDController(getModelByIDUseCase);
 
 export { getModelByIDUseCase, getModelByIDController };

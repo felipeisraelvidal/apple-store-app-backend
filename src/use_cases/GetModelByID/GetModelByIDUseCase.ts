@@ -1,6 +1,6 @@
 import { Model } from '@entities/Model';
 import { IModelsRepository } from '@repositories/IModelsRepository';
-import { IGetModelsByIDResponseDTO } from './GetModelsByIDDTO';
+import { IGetModelsByIDResponseDTO } from './GetModelByIDDTO';
 
 export class GetModelByIDUseCase {
     private modelsRepository: IModelsRepository;

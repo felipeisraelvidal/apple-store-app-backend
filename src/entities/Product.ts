@@ -32,7 +32,7 @@ export class Product {
 
     @AfterLoad()
     private getMinPrice() {
-        if (this.options, this.options.length > 0) {
+        if (this.options && this.options.length > 0) {
             this.startsAt = Math.min(...this.options.map(option => option.price));
         } else {
             this.startsAt = 0;

@@ -5,6 +5,7 @@ import { getModelsController } from '@useCases/GetModels';
 import { getModelByIDController } from '@useCases/GetModelByID';
 import { getProductsController } from '@useCases/GetProducts';
 import { getProductsByFamilyController } from '@useCases/GetProductsByFamily';
+import { getProductByIDController } from '@useCases/GetProductByID';
 
 const router = Router();
 
@@ -30,6 +31,10 @@ router.get('/models/:id', (req, res) => {
 
 router.get('/products', (req, res) => {
     return getProductsController.handle(req, res);
+});
+
+router.get('/products/:productId', (req, res) => {
+    return getProductByIDController.handle(req, res);
 });
 
 export default router;

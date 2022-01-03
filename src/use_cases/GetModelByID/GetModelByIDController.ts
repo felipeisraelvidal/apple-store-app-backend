@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { GetModelByIDUseCase } from './GetModelByIDUseCase';
 
-export class GetModelsByIDController {
+export class GetModelByIDController {
     private getModelByIDUseCase: GetModelByIDUseCase;
 
     constructor(getModelByIDUseCase: GetModelByIDUseCase) {

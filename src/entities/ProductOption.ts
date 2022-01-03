@@ -1,5 +1,6 @@
-import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from 'typeorm';
 import { Product } from './Product';
+import { ProductOptionSpec } from './ProductOptionSpec';
 
 @Entity('products_options')
 export class ProductOption {
@@ -18,6 +19,9 @@ export class ProductOption {
 
     @Column({ name: 'price' })
     price: number;
+
+    @OneToMany(() => ProductOptionSpec, productOptionSpec => productOptionSpec.productOption)
+    specs: ProductOptionSpec[];
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;

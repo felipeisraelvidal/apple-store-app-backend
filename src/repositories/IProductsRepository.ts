@@ -4,4 +4,5 @@ import GetProductsByFamilyDTO from '@useCases/GetProductsByFamily/GetProductsByF
 export interface IProductsRepository {
     findAll(): Promise<Product[]>;
     findProductsByFamily(familyId: number): Promise<GetProductsByFamilyDTO[]>;
+    findProductByID(productId: number): Promise<Product>;
 }
