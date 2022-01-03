@@ -21,7 +21,7 @@ module.exports = {
                 '@infra': './src/infra',
                 '@utils': './src/utils',
                 '@middlewares': './src/middlewares',
-                '@entities': './src/database/entities'
+                '@entities': './src/entities'
             }
         }]
     ],
