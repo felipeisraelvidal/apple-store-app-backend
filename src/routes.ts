@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { getFamiliesController } from '@useCases/GetFamilies';
 import { getFamilyByIDController } from '@useCases/GetFamilyByID';
 import { getModelsController } from '@useCases/GetModels';
-import { getModelByIDController } from '@useCases/GetModelsByID';
+import { getModelByIDController } from '@useCases/GetModelByID';
 import { getProductsController } from '@useCases/GetProducts';
 import { getProductsByFamilyController } from '@useCases/GetProductsByFamily';
 
