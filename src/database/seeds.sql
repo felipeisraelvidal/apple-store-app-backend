@@ -24,3 +24,8 @@ VALUES
     (1, 2, 'MacBook Pro 13"', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-card-40-macbook-pro-13-202110?wid=1200&hei=1000&fmt=p-jpg&qlt=95&.v=1633726243000'),
     (1, 2, 'MacBook Pro 14"', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-card-40-macbook-pro-14-202110?wid=1200&hei=1000&fmt=p-jpg&qlt=95&.v=1633726243000'),
     (1, 2, 'MacBook Pro 16"', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-card-40-macbook-pro-16-202110?wid=1200&hei=1000&fmt=p-jpg&qlt=95&.v=1633726244000');
+
+INSERT INTO products_options (id_product, name, image_url, price)
+VALUES
+    (1, 'Apple M1 Chip with 8-Core CPU and 7-Core GPU\n256GB Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 999),
+    (1, 'Apple M1 Chip with 8-Core CPU and 8-Core GPU\n512GB Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 1249);
