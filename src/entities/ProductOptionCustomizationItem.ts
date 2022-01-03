@@ -16,6 +16,9 @@ export class ProductOptionCustomizationItem {
     @Column({ name: 'price' })
     price: string;
 
+    @Column({ name: 'is_default' })
+    isDefault: boolean;
+
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;
 }

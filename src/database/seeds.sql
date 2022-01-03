@@ -54,7 +54,11 @@ VALUES
     (1, 'Memory', 'sum_base_price'),
     (1, 'Storage', 'sum_base_price'),
     (1, 'Final Cut Pro', 'sum_base_price'),
-    (1, 'Logic Pro', 'sum_base_price');
+    (1, 'Logic Pro', 'sum_base_price'),
+    (2, 'Memory', 'sum_base_price'),
+    (2, 'Storage', 'sum_base_price'),
+    (2, 'Final Cut Pro', 'sum_base_price'),
+    (2, 'Logic Pro', 'sum_base_price');
 
 INSERT INTO products_options_customizations_items (id_product_option_customization, name, price, is_default)
 VALUES
@@ -65,6 +69,15 @@ VALUES
     (2, '1TB SSD storage', 400, 0),
     (2, '2TB SSD storage', 800, 0),
     (3, 'None', 0, 1),
-    (3, 'Final Cut Pro', 299.99, 0);
+    (3, 'Final Cut Pro', 299.99, 0),
     (4, 'None', 0, 1),
-    (4, 'Logic Pro', 199.99, 0);
+    (4, 'Logic Pro', 199.99, 0),
+    (5, '8GB unified memory', 0, 1),
+    (5, '16GB unified memory', 200, 0),
+    (6, '512GB SSD storage', 0, 1),
+    (6, '1TB SSD storage', 200, 0),
+    (6, '2TB SSD storage', 600, 0),
+    (7, 'None', 0, 1),
+    (7, 'Final Cut Pro', 299.99, 0),
+    (8, 'None', 0, 1),
+    (8, 'Logic Pro', 199.99, 0);
