@@ -52,3 +52,28 @@ CREATE TABLE IF NOT EXISTS products_options_specs (
 
     FOREIGN KEY (id_product_option) REFERENCES products_options (id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS products_options_customizations;
+CREATE TABLE IF NOT EXISTS products_options_customizations (
+    id INTEGER PRIMARY KEY,
+    id_product_option INTEGER NOT NULL,
+    name VARCHAR NOT NULL,
+    price_change_method VARCHAR CHECK(price_change_method IN ('none', 'change_base_price', 'sum_base_price')) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_product_option) REFERENCES products_options (id) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS products_options_customizations_items;
+CREATE TABLE IF NOT EXISTS products_options_customizations_items (
+    id INTEGER PRIMARY KEY,
+    id_product_option_customization INTEGER NOT NULL,
+    name VARCHAR NOT NULL,
+    price DOUBLE(10, 2) NOT NULL,
+    is_default BOOLEAN NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id
+);

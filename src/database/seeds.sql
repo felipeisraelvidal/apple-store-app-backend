@@ -48,3 +48,23 @@ VALUES
     (2, 'Touch ID'),
     (2, 'Force Touch trackpad'),
     (2, 'Two Thunderbolt / USB 4 ports');
+
+INSERT INTO products_options_customizations (id_product_option, name, price_change_method)
+VALUES
+    (1, 'Memory', 'sum_base_price'),
+    (1, 'Storage', 'sum_base_price'),
+    (1, 'Final Cut Pro', 'sum_base_price'),
+    (1, 'Logic Pro', 'sum_base_price');
+
+INSERT INTO products_options_customizations_items (id_product_option_customization, name, price, is_default)
+VALUES
+    (1, '8GB unified memory', 0, 1),
+    (1, '16GB unified memory', 200, 0),
+    (2, '256GB SSD storage', 0, 1),
+    (2, '512GB SSD storage', 200, 0),
+    (2, '1TB SSD storage', 400, 0),
+    (2, '2TB SSD storage', 800, 0),
+    (3, 'None', 0, 1),
+    (3, 'Final Cut Pro', 299.99, 0);
+    (4, 'None', 0, 1),
+    (4, 'Logic Pro', 199.99, 0);

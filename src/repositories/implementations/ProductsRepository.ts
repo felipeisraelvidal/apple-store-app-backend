@@ -1,4 +1,5 @@
 import { Product } from '@entities/Product';
+import { ProductOptionCustomization } from '@entities/ProductOptionCustomization';
 import { IProductsRepository } from '@repositories/IProductsRepository';
 import GetProductsByFamilyDTO from '@useCases/GetProductsByFamily/GetProductsByFamilyDTO';
 import { getRepository } from 'typeorm';
@@ -44,5 +45,18 @@ export class ProductsRepository implements IProductsRepository {
         }
 
         return product;
+    }
+
+    async findProductOptionCustomizations(productId: number, optionId: number): Promise<ProductOptionCustomization[]> {
+        const repo = getRepository(ProductOptionCustomization);
+
+        const customizations = await repo
+            .createQueryBuilder('customization')
+            .where('customization.id_product_option = :optionId', { optionId })
+            .leftJoinAndSelect('customization.items', 'item')
+            .addOrderBy('item.name', 'ASC')
+            .getMany();
+
+        return customizations;
     }
 }

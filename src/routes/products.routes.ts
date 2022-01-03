@@ -1,4 +1,5 @@
 import { getProductByIDController } from '@useCases/GetProductByID';
+import { getProductOptionCustomizationsController } from '@useCases/GetProductOptionCustomizations';
 import { getProductsController } from '@useCases/GetProducts';
 import { Router } from 'express';
 
@@ -13,7 +14,7 @@ productsRouter.get('/:productId', (req, res) => {
 });
 
 productsRouter.get('/:productId/options/:optionId/customizations', (req, res) => {
-    return res.send('Get all product option customizations');
+    return getProductOptionCustomizationsController.handle(req, res);
 });
 
 productsRouter.get('/:productId/details', (req, res) => {
