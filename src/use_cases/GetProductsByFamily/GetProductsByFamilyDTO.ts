@@ -7,21 +7,21 @@ export interface GetProductsByFamilyRequestDTO {
 interface GetProductsByFamilyResponseDTO {
     id: number;
     name: string;
-    imageURL?: string;
-    startsAt: number;
-    createdAt: Date;
+    image_url?: string;
+    starting_price: number;
+    created_at: Date;
 }
 
 export default class GetProductsByFamilyDTO {
     static of(product: Product): GetProductsByFamilyResponseDTO {
-        const { id, name, imageURL, startsAt, createdAt } = product;
+        const { id, name, imageURL, startingPrice, createdAt } = product;
 
         return {
             id,
             name,
-            imageURL,
-            startsAt,
-            createdAt
+            image_url: imageURL,
+            starting_price: startingPrice,
+            created_at: createdAt
         };
     }
 

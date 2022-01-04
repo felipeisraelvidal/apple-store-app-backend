@@ -28,14 +28,14 @@ export class Product {
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;
 
-    startsAt: number;
+    startingPrice: number;
 
     @AfterLoad()
     private getMinPrice() {
         if (this.options && this.options.length > 0) {
-            this.startsAt = Math.min(...this.options.map(option => option.price));
+            this.startingPrice = Math.min(...this.options.map(option => option.price));
         } else {
-            this.startsAt = 0;
+            this.startingPrice = 0;
         }
     }
 }
