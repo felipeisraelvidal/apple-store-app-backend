@@ -1,5 +1,5 @@
 import { IFamiliesRepository } from '@repositories/IFamiliesRepository';
-import { Family } from '@entities/Family';
+import FamilyDTO, { IFamilyDTO } from '@dtos/FamilyDTO';
 
 export class GetFamiliesUseCase {
     private familiesRepository: IFamiliesRepository;
@@ -8,7 +8,8 @@ export class GetFamiliesUseCase {
         this.familiesRepository = familiesRespository;
     }
 
-    async execute(): Promise<Family[]> {
-        return await this.familiesRepository.findAll();
+    async execute(): Promise<IFamilyDTO[]> {
+        const families = await this.familiesRepository.findAll();
+        return FamilyDTO.ofList(families);
     }
 }

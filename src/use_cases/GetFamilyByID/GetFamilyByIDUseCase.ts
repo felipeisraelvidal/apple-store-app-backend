@@ -1,6 +1,6 @@
 import { IFamiliesRepository } from '@repositories/IFamiliesRepository';
 import { IGetFamilyByIDRequestDTO } from './GetFamilyByIDDTO';
-import { Family } from '@entities/Family';
+import FamilyDTO, { IFamilyDTO } from '@dtos/FamilyDTO';
 
 export class GetFamilyByIDUseCase {
     private familiesRepository: IFamiliesRepository;
@@ -9,7 +9,8 @@ export class GetFamilyByIDUseCase {
         this.familiesRepository = familiesRespository;
     }
 
-    async execute(data: IGetFamilyByIDRequestDTO): Promise<Family> {
-        return await this.familiesRepository.findById(data.id);
+    async execute(data: IGetFamilyByIDRequestDTO): Promise<IFamilyDTO> {
+        const family = await this.familiesRepository.findById(data.id);
+        return FamilyDTO.of(family);
     }
 }
