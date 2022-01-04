@@ -1,6 +1,6 @@
-import { Model } from '@entities/Model';
+import ModelDTO, { IModelDTO } from '@dtos/ModelDTO';
 import { IModelsRepository } from '@repositories/IModelsRepository';
-import { IGetModelsByIDResponseDTO } from './GetModelByIDDTO';
+import { IGetModelByIDResponseDTO } from './GetModelByIDDTO';
 
 export class GetModelByIDUseCase {
     private modelsRepository: IModelsRepository;
@@ -9,7 +9,8 @@ export class GetModelByIDUseCase {
         this.modelsRepository = modelsRepository;
     }
 
-    async execute(data: IGetModelsByIDResponseDTO): Promise<Model> {
-        return await this.modelsRepository.findById(data.id);
+    async execute(data: IGetModelByIDResponseDTO): Promise<IModelDTO> {
+        const model = await this.modelsRepository.findById(data.id);
+        return ModelDTO.of(model);
     }
 }

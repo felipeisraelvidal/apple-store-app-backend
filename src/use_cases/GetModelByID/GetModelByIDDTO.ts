@@ -1,3 +1,3 @@
-export interface IGetModelsByIDResponseDTO {
+export interface IGetModelByIDResponseDTO {
     id: number;
 }

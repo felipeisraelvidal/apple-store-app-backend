@@ -1,4 +1,4 @@
-import { Model } from '@entities/Model';
+import ModelDTO, { IModelDTO } from '@dtos/ModelDTO';
 import { IModelsRepository } from '@repositories/IModelsRepository';
 
 export class GetModelsUseCase {
@@ -8,7 +8,8 @@ export class GetModelsUseCase {
         this.modelsRepository = modelsRepository;
     }
 
-    async execute(): Promise<Model[]> {
-        return await this.modelsRepository.findAll();
+    async execute(): Promise<IModelDTO[]> {
+        const models = await this.modelsRepository.findAll();
+        return ModelDTO.ofList(models);
     }
 }
