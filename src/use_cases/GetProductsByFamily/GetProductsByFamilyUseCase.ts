@@ -1,5 +1,6 @@
+import ProductDTO, { IProductDTO } from '@dtos/ProductDTO';
 import { IProductsRepository } from '@repositories/IProductsRepository';
-import GetProductsByFamilyDTO, { GetProductsByFamilyRequestDTO } from './GetProductsByFamilyDTO';
+import { IGetProductsByFamilyRequestDTO } from './GetProductsByFamilyDTO';
 
 export class GetProductsByFamilyUseCase {
     private productsRepository: IProductsRepository;
@@ -8,7 +9,8 @@ export class GetProductsByFamilyUseCase {
         this.productsRepository = productsRepository;
     }
 
-    async execute(data: GetProductsByFamilyRequestDTO): Promise<GetProductsByFamilyDTO[]> {
-        return await this.productsRepository.findProductsByFamily(data.familyId);
+    async execute(data: IGetProductsByFamilyRequestDTO): Promise<IProductDTO[]> {
+        const products = await this.productsRepository.findProductsByFamily(data.familyId);
+        return ProductDTO.ofList(products);
     }
 }

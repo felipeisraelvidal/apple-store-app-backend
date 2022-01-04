@@ -1,6 +1,6 @@
 import { IProductsRepository } from '@repositories/IProductsRepository';
-import { GetProductByIDRequestDTO } from './GetProductByIDDTO';
-import GetProductByIDResponseDTO from './GetProductByIDDTO';
+import { IGetProductByIDRequestDTO } from './GetProductByIDDTO';
+import ProductDTO, { IProductDTO } from '@dtos/ProductDTO';
 
 export class GetProductByIDUseCase {
     private productsRepository: IProductsRepository
@@ -9,8 +9,8 @@ export class GetProductByIDUseCase {
         this.productsRepository = productsRepository;
     }
 
-    async execute(data: GetProductByIDRequestDTO): Promise<GetProductByIDResponseDTO> {
-        const products = await this.productsRepository.findProductByID(data.productId);
-        return GetProductByIDResponseDTO.of(products);
+    async execute(data: IGetProductByIDRequestDTO): Promise<IProductDTO> {
+        const product = await this.productsRepository.findProductByID(data.productId);
+        return ProductDTO.of(product);
     }
 }

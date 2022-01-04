@@ -2,7 +2,6 @@ import { Product } from '@entities/Product';
 import { ProductOption } from '@entities/ProductOption';
 import { ProductOptionCustomization } from '@entities/ProductOptionCustomization';
 import { IProductsRepository } from '@repositories/IProductsRepository';
-import GetProductsByFamilyDTO from '@useCases/GetProductsByFamily/GetProductsByFamilyDTO';
 import { getRepository } from 'typeorm';
 
 export class ProductsRepository implements IProductsRepository {
@@ -11,22 +10,24 @@ export class ProductsRepository implements IProductsRepository {
 
         const products = await repo
             .createQueryBuilder('product')
+            .leftJoinAndSelect('product.family', 'family')
+            .leftJoinAndSelect('product.model', 'model')
             .getMany();
 
         return products;
     }
 
-    async findProductsByFamily(familyId: number): Promise<GetProductsByFamilyDTO[]> {
+    async findProductsByFamily(familyId: number): Promise<Product[]> {
         const repo = getRepository(Product);
 
         const products = await repo
             .createQueryBuilder('product')
             .where('product.id_family = :familyId', { familyId })
             .leftJoinAndSelect('product.model', 'model')
-            .leftJoinAndSelect('product.options', 'option')
+            .leftJoinAndSelect('product.family', 'family')
             .getMany();
 
-        return products.map(product => GetProductsByFamilyDTO.of(product));
+        return products;
     }
 
     async findProductByID(productId: number): Promise<Product> {
@@ -37,8 +38,10 @@ export class ProductsRepository implements IProductsRepository {
         const product = await repo
             .createQueryBuilder('product')
             .where('product.id = :productId', { productId })
-            .leftJoinAndSelect('product.options', 'option')
-            .leftJoinAndSelect('option.specs', 'optionSpec')
+            // .leftJoinAndSelect('product.options', 'option')
+            // .leftJoinAndSelect('option.specs', 'optionSpec')
+            .leftJoinAndSelect('product.model', 'model')
+            .leftJoinAndSelect('product.family', 'family')
             .getOne();
 
         if (!product) {

@@ -30,6 +30,7 @@
       "@utils/*": ["./src/utils/*"],
       "@middlewares/*": ["./src/middlewares/*"],
       "@entities/*": ["./src/entities/*"],
+      "@dtos/*": ["./src/dtos/*"],
     }
   },
   "include": [

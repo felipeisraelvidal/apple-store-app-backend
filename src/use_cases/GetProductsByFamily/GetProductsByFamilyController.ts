@@ -19,7 +19,7 @@ export class GetProductsByFamilyController {
             return response.json(products);
         } catch (err) {
             return response.status(400).json({
-                message: err || 'Unexpected error.'
+                message: (err as Error).message || 'Unexpected error.'
             });
         }
     }

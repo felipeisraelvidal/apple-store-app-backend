@@ -1,4 +1,4 @@
-import { Product } from '@entities/Product';
+import ProductDTO, { IProductDTO } from '@dtos/ProductDTO';
 import { IProductsRepository } from '@repositories/IProductsRepository';
 
 export class GetProductsUseCase {
@@ -8,7 +8,8 @@ export class GetProductsUseCase {
         this.productsRepository = productsRepository;
     }
 
-    async execute(): Promise<Product[]> {
-        return await this.productsRepository.findAll();
+    async execute(): Promise<IProductDTO[]> {
+        const products = await this.productsRepository.findAll();
+        return ProductDTO.ofList(products);
     }
 }
