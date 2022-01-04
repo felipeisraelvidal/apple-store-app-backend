@@ -1,4 +1,5 @@
 import { Product } from '@entities/Product';
+import { ProductOption } from '@entities/ProductOption';
 import { ProductOptionCustomization } from '@entities/ProductOptionCustomization';
 import { IProductsRepository } from '@repositories/IProductsRepository';
 import GetProductsByFamilyDTO from '@useCases/GetProductsByFamily/GetProductsByFamilyDTO';
@@ -59,5 +60,17 @@ export class ProductsRepository implements IProductsRepository {
             .getMany();
 
         return customizations;
+    }
+
+    async findProductOptions(productId: number): Promise<ProductOption[]> {
+        const repo = getRepository(ProductOption);
+
+        const options = await repo
+            .createQueryBuilder('productOption')
+            .where('productOption.id_product = :productId', { productId })
+            .innerJoinAndSelect('productOption.specs', 'spec')
+            .getMany();
+
+        return options;
     }
 }
