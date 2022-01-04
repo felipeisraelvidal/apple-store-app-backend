@@ -75,5 +75,24 @@ CREATE TABLE IF NOT EXISTS products_options_customizations_items (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (id
+    FOREIGN KEY (id_product_option_customization) REFERENCES products_options_customizations (id) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS available_finishes;
+CREATE TABLE IF NOT EXISTS available_finishes (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    image_url TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS products_options_available_finishes;
+CREATE TABLE IF NOT EXISTS products_options_available_finishes (
+    id_product_option INTEGER NOT NULL,
+    id_finish INTEGER NOT NULL,
+
+    PRIMARY KEY (id_product_option, id_finish),
+    FOREIGN KEY (id_product_option) REFERENCES products_options (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_finish) REFERENCES available_finishes (id) ON DELETE CASCADE
 );

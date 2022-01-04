@@ -72,6 +72,7 @@ export class ProductsRepository implements IProductsRepository {
             .createQueryBuilder('productOption')
             .where('productOption.id_product = :productId', { productId })
             .innerJoinAndSelect('productOption.specs', 'spec')
+            .innerJoinAndSelect('productOption.availableFinishes', 'finish')
             .getMany();
 
         return options;

@@ -1,4 +1,5 @@
 import { ProductOption } from '@entities/ProductOption';
+import AvailableFinishDTO, { IAvailableFinishDTO } from './AvailableFinishDTO';
 
 export interface IProductOptionDTO {
     id: number;
@@ -6,19 +7,21 @@ export interface IProductOptionDTO {
     image_url?: string;
     price: number;
     specs: string[];
+    available_finishes: IAvailableFinishDTO[];
     created_at: Date;
 }
 
 export default class ProductOptionDTO {
     static of(productOption: ProductOption): IProductOptionDTO {
-        const { id, name, imageURL, price, specs, createdAt } = productOption;
+        const { id, name, imageURL, price, specs, availableFinishes, createdAt } = productOption;
 
         return {
             id,
-            name,
+            name: name.replace('\\n', '\n'),
             image_url: imageURL,
             price,
             specs: specs.map(spec => spec.description),
+            available_finishes: AvailableFinishDTO.ofList(availableFinishes),
             created_at: createdAt
         };
     }
