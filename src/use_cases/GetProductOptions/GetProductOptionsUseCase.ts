@@ -1,5 +1,6 @@
+import ProductOptionDTO, { IProductOptionDTO } from '@dtos/ProductOptionDTO';
 import { IProductsRepository } from '@repositories/IProductsRepository';
-import GetProductOptionsDTO, { IGetProductOptionsRequestDTO, IGetProductOptionsResponseDTO } from './GetProductOptionsDTO';
+import { IGetProductOptionsRequestDTO } from './GetProductOptionsDTO';
 
 export class GetProductOptionsUseCase {
     private productsRepository: IProductsRepository;
@@ -8,8 +9,8 @@ export class GetProductOptionsUseCase {
         this.productsRepository = productsRepository;
     }
 
-    async execute(data: IGetProductOptionsRequestDTO): Promise<IGetProductOptionsResponseDTO[]> {
+    async execute(data: IGetProductOptionsRequestDTO): Promise<IProductOptionDTO[]> {
         const productOptions = await this.productsRepository.findProductOptions(data.productId);
-        return GetProductOptionsDTO.ofList(productOptions);
+        return ProductOptionDTO.ofList(productOptions);
     }
 }
