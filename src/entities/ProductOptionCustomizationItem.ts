@@ -14,7 +14,7 @@ export class ProductOptionCustomizationItem {
     name: string;
 
     @Column({ name: 'price' })
-    price: string;
+    price: number;
 
     @Column({ name: 'is_default' })
     isDefault: boolean;
