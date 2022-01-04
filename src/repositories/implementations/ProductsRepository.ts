@@ -21,6 +21,7 @@ export class ProductsRepository implements IProductsRepository {
         const products = await repo
             .createQueryBuilder('product')
             .where('product.id_family = :familyId', { familyId })
+            .leftJoinAndSelect('product.model', 'model')
             .leftJoinAndSelect('product.options', 'option')
             .getMany();
 
