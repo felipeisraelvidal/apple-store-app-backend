@@ -12,6 +12,7 @@ export class ProductsRepository implements IProductsRepository {
             .createQueryBuilder('product')
             .leftJoinAndSelect('product.family', 'family')
             .leftJoinAndSelect('product.model', 'model')
+            .leftJoinAndSelect('product.options', 'option')
             .getMany();
 
         return products;
@@ -25,6 +26,7 @@ export class ProductsRepository implements IProductsRepository {
             .where('product.id_family = :familyId', { familyId })
             .leftJoinAndSelect('product.model', 'model')
             .leftJoinAndSelect('product.family', 'family')
+            .leftJoinAndSelect('product.options', 'option')
             .getMany();
 
         return products;
@@ -38,10 +40,10 @@ export class ProductsRepository implements IProductsRepository {
         const product = await repo
             .createQueryBuilder('product')
             .where('product.id = :productId', { productId })
-            // .leftJoinAndSelect('product.options', 'option')
             // .leftJoinAndSelect('option.specs', 'optionSpec')
             .leftJoinAndSelect('product.model', 'model')
             .leftJoinAndSelect('product.family', 'family')
+            .leftJoinAndSelect('product.options', 'option')
             .getOne();
 
         if (!product) {
