@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS products_options_customizations_items (
     id INTEGER PRIMARY KEY,
     id_product_option_customization INTEGER NOT NULL,
     name VARCHAR NOT NULL,
-    price DOUBLE(10, 2) NOT NULL,
+    price DOUBLE(10, 2),
     is_default BOOLEAN NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
