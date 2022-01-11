@@ -24,16 +24,7 @@ export class ProductOption {
     @OneToMany(() => ProductOptionSpec, productOptionSpec => productOptionSpec.productOption)
     specs: ProductOptionSpec[];
 
-    @ManyToMany(() => AvailableFinish)
-    @JoinTable({
-        name: 'products_options_available_finishes',
-        joinColumn: {
-            name: 'id_product_option'
-        },
-        inverseJoinColumn: {
-            name: 'id_finish'
-        }
-    })
+    @OneToMany(() => AvailableFinish, finish => finish.productOption)
     availableFinishes: AvailableFinish[];
 
     @CreateDateColumn({ name: 'created_at' })

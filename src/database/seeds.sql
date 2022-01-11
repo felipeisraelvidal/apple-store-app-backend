@@ -45,7 +45,17 @@ VALUES
     (1, 'Apple M1 Chip with 8-Core CPU and 7-Core GPU\n256GB Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 999),
     (1, 'Apple M1 Chip with 8-Core CPU and 8-Core GPU\n512GB Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 1249),
     (2, 'Apple M1 Chip with 8‑Core CPU and 8‑Core GPU\n256GB SSD Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000', 1299),
-    (2, 'Apple M1 Chip with 8‑Core CPU and 8‑Core GPU\n512GB SSD Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000', 1499);
+    (2, 'Apple M1 Chip with 8‑Core CPU and 8‑Core GPU\n512GB SSD Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000', 1499),
+    (3, '8-Core CPU\n14-Core GPU\n16GB Unified Memory\n512GB SSD Storage', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632788573000', 1999);
+
+-- INSERT INTO products_options_box_contents (id_product_option, name, image_url)
+-- VALUES
+--     (1, 'MacBook Air', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-box-hw-201810_FMT_WHH?wid=560&hei=744&fmt=jpeg&qlt=80&.v=1539378343509'),
+--     (1, 'USB-C Charge Cable (2m )', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-box-cable-201810_FMT_WHH?wid=560&hei=744&fmt=jpeg&qlt=80&.v=1539378741433'),
+--     (1, '30W USB-C Power Adapter', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-box-adapter-201810_FMT_WHH?wid=560&hei=744&fmt=jpeg&qlt=80&.v=1539295994256'),
+--     (2, 'MacBook Air', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-box-hw-201810_FMT_WHH?wid=560&hei=744&fmt=jpeg&qlt=80&.v=1539378343509'),
+--     (2, 'USB-C Charge Cable (2m )', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-box-cable-201810_FMT_WHH?wid=560&hei=744&fmt=jpeg&qlt=80&.v=1539378741433'),
+--     (2, '30W USB-C Power Adapter', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-box-adapter-201810_FMT_WHH?wid=560&hei=744&fmt=jpeg&qlt=80&.v=1539295994256');
 
 INSERT INTO products_options_specs (id_product_option, description)
 VALUES
@@ -80,7 +90,13 @@ VALUES
     (4, 'Magic Keyboard'),
     (4, 'Touch Bar and Touch ID'),
     (4, 'Force Touch trackpad'),
-    (4, 'Two Thunderbolt / USB 4 ports');
+    (4, 'Two Thunderbolt / USB 4 ports'),
+    (5, '16-core Neural Engine'),
+    (5, '14-inch Liquid Retina XDR display'),
+    (5, 'Three Thunderbolt 4 ports, HDMI port, SDXC card slot, MagSafe 3 port'),
+    (5, 'Magic Keyboard with Touch ID'),
+    (5, 'Force Touch trackpad'),
+    (5, '67W USB-C Power Adapter');
 
 INSERT INTO products_options_customizations (id_product_option, name, price_change_method)
 VALUES
@@ -99,7 +115,13 @@ VALUES
     (4, 'Memory', 'sum_base_price'),
     (4, 'Storage', 'sum_base_price'),
     (4, 'Final Cut Pro', 'sum_base_price'),
-    (4, 'Logic Pro', 'sum_base_price');
+    (4, 'Logic Pro', 'sum_base_price'),
+    (5, 'System on a Chip (Processor)', 'sum_base_price'),
+    (5, 'Memory', 'sum_base_price'),
+    (5, 'Storage', 'sum_base_price'),
+    (5, 'Power Adapter', 'sum_base_price'),
+    (5, 'Final Cut Pro', 'sum_base_price'),
+    (5, 'Logic Pro', 'sum_base_price');
 
 INSERT INTO products_options_customizations_items (id_product_option_customization, name, price, is_default)
 VALUES
@@ -140,30 +162,38 @@ VALUES
     (15, 'None', null, 1),
     (15, 'Final Cut Pro', 299.99, 0),
     (16, 'None', null, 1),
-    (16, 'Logic Pro', 199.99, 0);
+    (16, 'Logic Pro', 199.99, 0),
+    (17, 'Apple M1 Pro with 8-core CPU, 14-core GPU, 16-core Neural Engine', null, 1),
+    (17, 'Apple M1 Pro with 10-core CPU, 14-core GPU, 16-core Neural Engine', 200, 0),
+    (17, 'Apple M1 Pro with 10-core CPU, 16-core GPU, 16-core Neural Engine', 300, 0),
+    (17, 'Apple M1 Max with 10-core CPU, 24-core GPU, 16-core Neural Engine', 500, 0),
+    (17, 'Apple M1 Max with 10-core CPU, 32-core GPU, 16-core Neural Engine', 700, 0),
+    (18, '16GB unified memory', null, 1),
+    (18, '32GB unified memory', 400, 0),
+    (18, '64GB unified memory', 800, 8),
+    (19, '512GB SSD storage', null, 1),
+    (19, '1TB SSD storage', 200, 0),
+    (19, '2TB SSD storage', 600, 0),
+    (19, '4TB SSD storage', 1200, 0),
+    (19, '8TB SSD storage', 2400, 0),
+    (20, '67W USB-C Power Adapter', null, 1),
+    (20, '96W USB-C Power Adapter', 20, 0),
+    (21, 'None', null, 1),
+    (21, 'Final Cut Pro', 299.99, 0),
+    (22, 'None', null, 1),
+    (22, 'Logic Pro', 199.99, 0);
 
-INSERT INTO available_finishes (name, image_url)
+INSERT INTO available_finishes (id_product_option, name, image_url, icon_image_url)
 VALUES
-    ('Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000'),
-    ('Gold', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000'),
-    ('Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000'),
-    ('Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000'),
-    ('Gold', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000'),
-    ('Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000'),
-    ('Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000'),
-    ('Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-silver-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632950226000'),
-    ('Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000'),
-    ('Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-silver-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632950226000');
-
-INSERT INTO products_options_available_finishes (id_product_option, id_finish)
-VALUES
-    (1, 1),
-    (1, 2),
-    (1, 3),
-    (2, 4),
-    (2, 5),
-    (2, 6),
-    (3, 7),
-    (3, 8),
-    (4, 9),
-    (4, 10);
+    (1, 'Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1539303180315'),
+    (1, 'Gold', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1539370797855'),
+    (1, 'Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1539303180473'),
+    (2, 'Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1539303180315'),
+    (2, 'Gold', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1539370797855'),
+    (2, 'Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1539303180473'),
+    (3, 'Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1621278170000'),
+    (3, 'Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-silver-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632950226000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-silver-select-202011_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1621278121000'),
+    (4, 'Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1621278170000'),
+    (4, 'Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-silver-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632950226000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-silver-select-202011_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1621278121000'),
+    (5, 'Space Gray', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632788573000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1632788569000'),
+    (5, 'Silver', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-silver-select-202110?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632788573000', 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-silver-select-202110_SW_COLOR?wid=64&hei=64&fmt=jpeg&qlt=80&.v=1632788569000');

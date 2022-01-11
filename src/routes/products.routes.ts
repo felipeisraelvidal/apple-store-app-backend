@@ -15,11 +15,15 @@ productsRouter.get('/:productId', (req, res) => {
 });
 
 productsRouter.get('/:productId/options', (req, res) => {
-    return getProductOptionsController.handle(req, res);
+    setTimeout(() => {
+        return getProductOptionsController.handle(req, res);
+    }, 3000);
 });
 
 productsRouter.get('/:productId/options/:optionId/customizations', (req, res) => {
-    return getProductOptionCustomizationsController.handle(req, res);
+    setTimeout(() => {
+        return getProductOptionCustomizationsController.handle(req, res);
+    }, 3000);
 });
 
 productsRouter.get('/:productId/details', (req, res) => {

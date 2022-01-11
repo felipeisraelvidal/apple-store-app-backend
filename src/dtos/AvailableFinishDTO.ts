@@ -4,16 +4,18 @@ export interface IAvailableFinishDTO {
     id: number;
     name: string;
     image_url?: string;
+    icon_image_url: string;
 }
 
 export default class AvailableFinishDTO {
     static of(finish: AvailableFinish): IAvailableFinishDTO {
-        const { id, name, imageURL } = finish;
+        const { id, name, imageURL, iconImageURL } = finish;
 
         return {
             id,
             name,
-            image_url: imageURL
+            image_url: imageURL,
+            icon_image_url: iconImageURL,
         };
     }
 

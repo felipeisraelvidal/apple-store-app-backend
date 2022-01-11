@@ -6,7 +6,9 @@ import { Router } from 'express';
 const familiesRouter = Router();
 
 familiesRouter.get('/', (req, res) => {
-    return getFamiliesController.handle(req, res);
+    setTimeout(() => {
+        return getFamiliesController.handle(req, res);
+    }, 3000);
 });
 
 familiesRouter.get('/:id', (req, res) => {

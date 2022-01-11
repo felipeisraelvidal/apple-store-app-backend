@@ -15,13 +15,15 @@ export default class ProductOptionDTO {
     static of(productOption: ProductOption): IProductOptionDTO {
         const { id, name, imageURL, price, specs, availableFinishes, createdAt } = productOption;
 
+        const sortedAvailableFinishes = availableFinishes.sort((a, b) => a.id - b.id);
+
         return {
             id,
             name: name.replace('\\n', '\n'),
             image_url: imageURL,
             price,
             specs: specs.map(spec => spec.description),
-            available_finishes: AvailableFinishDTO.ofList(availableFinishes),
+            available_finishes: AvailableFinishDTO.ofList(sortedAvailableFinishes),
             created_at: createdAt
         };
     }

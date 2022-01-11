@@ -61,7 +61,7 @@ export class ProductsRepository implements IProductsRepository {
             .createQueryBuilder('customization')
             .where('customization.id_product_option = :optionId', { optionId })
             .leftJoinAndSelect('customization.items', 'item')
-            .addOrderBy('item.name', 'ASC')
+            .addOrderBy('item.id', 'ASC')
             .getMany();
 
         return customizations;
@@ -73,8 +73,8 @@ export class ProductsRepository implements IProductsRepository {
         const options = await repo
             .createQueryBuilder('productOption')
             .where('productOption.id_product = :productId', { productId })
-            .innerJoinAndSelect('productOption.specs', 'spec')
-            .innerJoinAndSelect('productOption.availableFinishes', 'finish')
+            .leftJoinAndSelect('productOption.specs', 'spec')
+            .leftJoinAndSelect('productOption.availableFinishes', 'finish')
             .getMany();
 
         return options;
