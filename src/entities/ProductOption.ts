@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, JoinTable, ManyToMany } from 'typeorm';
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from 'typeorm';
 import AvailableFinish from './AvailableFinish';
 import { Product } from './Product';
 import { ProductOptionSpec } from './ProductOptionSpec';
